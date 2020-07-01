@@ -284,7 +284,7 @@ def extract_identified_structures(tandem_annotated_chromatograms, threshold_fn, 
     unassigned = []
 
     for chroma in tandem_annotated_chromatograms:
-        if chroma.composition is not None:
+        if hasattr(chroma, 'composition') and chroma.composition is not None:
             if hasattr(chroma, 'entity'):
                 try:
                     representers = chroma.representative_solutions
